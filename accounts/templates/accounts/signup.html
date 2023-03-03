@@ -1,0 +1,33 @@
+{% extends "base_layout.html" %}
+{% load widget_tweaks %}
+{% block content %}
+{% block navbar %}{% include 'articles/nav.html' %}{% endblock navbar %}
+
+<br>
+<br>
+<br>
+<hr>
+<br>
+<h1> Noy signed Up? Sign Up here </h1>
+
+
+
+<div class="row">
+	<div class="col-md-6">
+	<div class="card card-body border-right border-top border-left">
+	<form class = "site-form" action = "/accounts/signup/" method ="post"> 
+
+            	{% csrf_token %}
+				{% for field in form %}
+					{{field.label}}
+					{{field|add_class:'form-control'}}
+				
+				{% endfor %}
+				<hr>
+				<input type="submit" class="btn btn-info">
+			</form>
+			</div>
+	</div>
+
+</div>
+{% endblock %}
